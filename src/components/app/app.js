@@ -10,7 +10,7 @@ function App({todos}) {
     <h1>TODO List</h1>
     <Form />
     <div>
-      {todos.map(todo => <Item key={todo[0]} item={todo[1]} />)}
+      {todos.map(todo => <Item key={todo[0]} id={todo[0]} item={todo[1]} />)}
     </div>
     </>
   )

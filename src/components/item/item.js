@@ -1,9 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeTodo } from '../../redux/actions.js';
 
-const Item = ({item}) => {
+const Item = ({item, id, removeTodo}) => {
     return (
-        <div>{item}</div>
+        <div>
+            <span>{item}</span>
+            <button onClick={() => removeTodo(id)}>X</button>
+        </div>
     );
 };
 
-export default Item;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeTodo: id => dispatch(removeTodo(id))
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Item);

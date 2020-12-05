@@ -16,6 +16,7 @@ class Form extends React.Component {
 
     handleSubmit(event) {
         this.props.addTodo(this.state.value);
+        this.setState({value: ''});
         event.preventDefault();
     }
 
