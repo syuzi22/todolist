@@ -1,6 +1,8 @@
 import './app.css';
 import Item from '../item';
 import Form from '../form';
+import { connect } from 'react-redux';
+
 
 function App() {
   return (
@@ -8,12 +10,16 @@ function App() {
     <h1>TODO List</h1>
     <Form />
     <div>
-      <Item item="Buy food" />
+      {/* <Item item="Buy food" />
       <Item item="Finish project" />
-      <Item item="Be happy" />
+      <Item item="Be happy" /> */}
     </div>
     </>
   )
 }
 
-export default App;
+// const mapStateToProps =
+
+// const mapDispatchToProps =
+
+export default connect()(App);
