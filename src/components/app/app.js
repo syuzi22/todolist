@@ -4,22 +4,24 @@ import Form from '../form';
 import { connect } from 'react-redux';
 
 
-function App() {
+function App({todos}) {
   return (
     <>
     <h1>TODO List</h1>
     <Form />
     <div>
-      {/* <Item item="Buy food" />
-      <Item item="Finish project" />
-      <Item item="Be happy" /> */}
+      {todos.map(todo => <Item key={todo[0]} item={todo[1]} />)}
     </div>
     </>
   )
 }
 
-// const mapStateToProps =
+const mapStateToProps = state => {
+  return ({
+    todos: Object.entries(state)
+  });
+}
 
 // const mapDispatchToProps =
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
