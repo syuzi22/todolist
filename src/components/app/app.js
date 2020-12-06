@@ -3,7 +3,6 @@ import Item from '../item';
 import Form from '../form';
 import { connect } from 'react-redux';
 
-
 function App({todos}) {
   return (
     <>

@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from './constants';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO } from './constants';
 
 // {[todoId]: todoText}
 const reducer = (state = {}, action) => {
@@ -10,6 +10,10 @@ const reducer = (state = {}, action) => {
           const newState = {...state};
           delete newState[todoId]
           return newState;
+        case EDIT_TODO:
+          const nextState = {...state};
+          nextState[todoId] = payload.todoText;
+          return nextState;
         default:
           return state;
     }
