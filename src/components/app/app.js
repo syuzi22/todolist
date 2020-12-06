@@ -1,4 +1,3 @@
-import './app.css';
 import Item from '../item';
 import Form from '../form';
 import { connect } from 'react-redux';
@@ -20,7 +19,5 @@ const mapStateToProps = state => {
     todos: Object.entries(state)
   });
 }
-
-// const mapDispatchToProps =
 
 export default connect(mapStateToProps)(App);

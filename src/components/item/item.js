@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import { removeTodo, editTodo } from '../../redux/actions.js';
 import { useState } from 'react';
 
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+
 const Item = ({item, id, removeTodo, editTodo}) => {
     const [editable, makeEditable] = useState(false);
     const [itemText, setItemText] = useState(item);
@@ -13,18 +17,34 @@ const Item = ({item, id, removeTodo, editTodo}) => {
 
     return (
         <div>
-            {
-            editable ?
-            <>
-                <input type="text" defaultValue={item} onChange={(event) => setItemText(event.target.value)} autoFocus></input>
-                <button onClick={applyClickHandler}>apply</button>
-            </> :
-            <>
-                <span>{item}</span>
-                <button onClick={() => makeEditable(true)}>edit</button>
-            </>
-            }
-            <button onClick={() => removeTodo(id)}>X</button>
+            <InputGroup className="mb-3">
+                {
+                editable ?
+                <>
+                    <FormControl
+                        placeholder="Edit task"
+                        aria-label="Edit task"
+                        aria-describedby="Edit task"
+                        type="text"
+                        defaultValue={item}
+                        onChange={(event) => setItemText(event.target.value)} autoFocus
+                    >
+                    </FormControl>
+                    <InputGroup.Append>
+                        <Button variant="outline-secondary" onClick={applyClickHandler}>apply</Button>
+                    </InputGroup.Append>
+                </> :
+                <>
+                <InputGroup.Text style={{userSelect: 'none', width: '86%' }}>{item}</InputGroup.Text>
+                <InputGroup.Append>
+                        <Button variant="outline-primary" onClick={() => makeEditable(true)}>edit</Button>
+                </InputGroup.Append>
+                </>
+                }
+                <InputGroup.Append>
+                    <Button variant="danger" onClick={() => removeTodo(id)}>X</Button>
+                </InputGroup.Append>
+            </InputGroup>
         </div>
     );
 };

@@ -2,6 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions.js'
 
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+
 class Form extends React.Component {
     constructor(props) {
         super(props);
@@ -23,14 +27,23 @@ class Form extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-                <button type="submit">Add</button>
+                <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="Add task"
+                            aria-label="Add task"
+                            aria-describedby="Add task"
+                            type="text"
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                        />
+                        <InputGroup.Append>
+                            <Button variant="primary" type="submit">Add</Button>
+                        </InputGroup.Append>
+                </InputGroup>
             </form>
         );
     }
 }
-
-// const mapStateToProps =
 
 const mapDispatchToProps = dispatch => {
     return {
