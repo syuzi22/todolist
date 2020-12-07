@@ -31,18 +31,18 @@ const Item = ({item, id, removeTodo, editTodo}) => {
                     >
                     </FormControl>
                     <InputGroup.Append>
-                        <Button variant="outline-secondary" onClick={applyClickHandler}>apply</Button>
+                        <Button variant="outline-success" onClick={applyClickHandler}>apply</Button>
                     </InputGroup.Append>
                 </> :
                 <>
                 <InputGroup.Text style={{userSelect: 'none', width: '86%' }}>{item}</InputGroup.Text>
                 <InputGroup.Append>
-                        <Button variant="outline-primary" onClick={() => makeEditable(true)}>edit</Button>
+                        <Button variant="outline-secondary" onClick={() => makeEditable(true)}>🖉</Button>
                 </InputGroup.Append>
                 </>
                 }
                 <InputGroup.Append>
-                    <Button variant="danger" onClick={() => removeTodo(id)}>X</Button>
+                    <Button variant="outline-danger" onClick={() => removeTodo(id)}>✗</Button>
                 </InputGroup.Append>
             </InputGroup>
         </div>
