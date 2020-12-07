@@ -28,6 +28,7 @@ const Item = ({item, id, removeTodo, editTodo}) => {
                         type="text"
                         defaultValue={item}
                         onChange={(event) => setItemText(event.target.value)} autoFocus
+                        required
                     >
                     </FormControl>
                     <InputGroup.Append>

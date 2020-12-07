@@ -35,6 +35,7 @@ class Form extends React.Component {
                             type="text"
                             value={this.state.value}
                             onChange={this.handleChange}
+                            required
                         />
                         <InputGroup.Append>
                             <Button variant="primary" type="submit">Add</Button>
